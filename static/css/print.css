@@ -1,0 +1,7 @@
+#header, #menu3, #botonesR, #head{
+    display: none;
+}
+@page {
+    size: A4 auto; 
+    margin: 10%
+  }

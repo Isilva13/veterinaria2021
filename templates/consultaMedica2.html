@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Firulais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+   
+</head>
+<body>
+    <header class="header">
+        <nav class="header_navegador">
+            <a class="titulo">Veterinária Boston</a>
+            <span class="opciones">
+                <a class="header_navegador_opciones" href="#">Inicio</a>
+                <a class="header_navegador_opciones" href="#">Ayuda</a>
+                <a class="header_navegador_opciones" href="#">Usuário</a>
+                <a class="header_navegador_opciones" href="#">Buscar Sócio
+                    <input type="text">
+                </a>
+            </span>
+        </nav>
+    </header>
+   
+    <main class="contenedor">
+        
+         
+        <div class="grid">
+            {% for persona in tabper %}
+           
+            <div class="cliente">
+                <div class="cliente_nombre_socio">
+                <label class="datos_cliente_principal_nombre">{{persona.1}} {{persona.12}} {{persona.2}} {{persona.13}}</label>
+                <label class="datos_cliente_principal_socio"> #{{persona.11}} </label> 
+                </div>
+                <div class="cliente_orden">   
+                    <!--<a href="producto.html">
+                            <img class="cliente_imagen" src="{{ url_for('static', filename='img/cliente.png') }}" >-->
+                            
+                            <label class="datos_cliente_principal">C.I.: {{persona.0}}</label> 
+                            <label class="datos_cliente">Alta: {{persona.9}}</label>
+                            <label class="datos_cliente_principal">Dirección: {{persona.4}} {{persona.6}}</label>
+                            <label class="datos_cliente">Esquina: {{persona.5}}</label>
+                            <label class="datos_cliente_principal">Teléfono: - {{persona.7}} - {{persona.7}} -</label> 
+                            <label class="datos_cliente">Email: {{persona.3}} {{persona.3}} {{persona.3}}</label>
+                            
+                            
+                </div>
+            </div>
+            {% endfor %}
+            {% for mascota in tabmascota %}
+            <div class="producto">
+                <a href="producto.html">
+                    
+                    
+                    
+                    <img class="mascota_foto" src="{{ url_for('static', filename='temp/foto.jpg') }}" >
+                    <p class="datos_mascotas">{{mascota.1}}<p></p>
+                    <div class="producto__informacion">
+                        
+                        <!--<p class="datos_mascotas">Espécie: <span>{{mascota.13}}</span>Raza: <span>{{mascota.12}}</span><p>   
+                        <p class="datos_mascotas">Talla: <span>{{mascota.5}}</span>Peso: <span>{{mascota.6}}</span></p>  
+                        <p class="datos_mascotas">Tipo Pelo: <span>{{mascota.3}}</span>Color: <span>{{mascota.4}}</span></p>
+                        <p class="datos_mascotas">Fecha Nacimiento:<span>{{mascota.8}} <p></span>   -->                
+                
+                    </div>
+                </a>
+            </div>  <!--.producto-->
+                    
+        </div>
+        
+        <div class="historia">
+            <div class="cliente_nombre_socio">
+                <label class="datos_cliente_principal_nombre">{{mascota.13}} {{mascota.12}} {{mascota.5}} {{mascota.6}} {{mascota.3}} {{mascota.4}} {{mascota.8}}</label>
+                {% endfor %} 
+            </div>
+            <div class="cliente_orden">   
+                {% for historia in tabhistoria %}
+                <tr>
+                   <td>{{historia.8}}</td>   
+                   <td>{{historia.0}} </td>
+                   <td>{{historia.1}} </td>
+                   <td>{{historia.2}} </td>
+                   
+                   <td><label type="text"  data-toggle="tooltip" data-placement="top"  title="{{historia.3}}">
+                     {{historia.3}}
+                   </label></td> 
+                   
+                   <td><label type="text"  data-toggle="tooltip" data-placement="top" title="{{historia.4}}">
+                     {{historia.10}}
+                   </label></td>
+                   <td>{{historia.5}}</td>
+                   <td>{{historia.6}}</td>
+                   
+                   
+                       <td><div class="search">
+                         <form class="input-append" action="" method="POST" >
+                             <input class="search-form" style="width:70px;height:20px" id="appendedPrependedInput" type="hidden" name="IDconsulta" value="{{historia.11}}" readonly="readonly"/>
+                             <button class="icon-search icon-60px" type="submit" onclick="window.location.href = 'consultaMedica.html'" target="_blank"> </button><i ></i></form>
+                             
+                             
+             </div>
+                         
+                         
+                           </td> 
+                          
+                           
+                          {% endfor %}
+                 </tr>
+                        
+                        
+                        
+            </div>
+        </div>
+        
+    </main>
+</body>
+
+</html>

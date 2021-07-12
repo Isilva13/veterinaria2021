@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Firulais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos7.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    
+    
+    
+  
+</head>
+<body>
+    <header class="header">
+        <nav class="header_navegador2">
+            <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+            
+            
+            <div class="caja_icono2">
+              <a class="icono" href="/">
+                <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                
+              </a>
+              
+            </div>    
+            <a class ="icono_inicio2" href="/"> inicio</a>
+            
+            <div class="search_buscar2">
+              <form  action="/busqueda" method="POST" >
+              <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio" autocomplete="off"/>
+              <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <circle cx="10" cy="10" r="7" />
+              <line x1="21" y1="21" x2="15" y2="15" />
+              </svg> </button> 
+              </form> 
+              
+            </div>
+            <div class="mensaje_socio2">
+            {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                
+                  
+                  <h5>{{message}}</h5> 
+                  
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div> 
+                    
+                
+              
+                
+             
+               
+            
+        </nav>
+    </header>
+   
+    <main class="contenedor">
+        <section class="menu3">
+          <div class="recuadro_botones_buscar2">
+            <a href="/search">
+            <div class="recuadro_botones_bordes_buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="15" cy="15" r="4" />
+                <path d="M18.5 18.5l2.5 2.5" />
+                <path d="M4 6h16" />
+                <path d="M4 12h4" />
+                <path d="M4 18h4" />
+              </svg><p class="letra_botones">Búsqueda Avanzada</p>
+            </div>
+          </div></a>
+          <div class="recuadro_botones_clientes2">  
+            <a href="/agregarCliente">
+            <div class="recuadro_botones_bordes_clientes">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 11h6m-3 -3v6" />
+                    </svg><p class="letra_botones">Cliente Nuevo</p>
+            </div>
+          </div></a>
+          <div class="recuadro_botones_reportes2">  
+            <a href="/reportes">
+            <div class="recuadro_botones_bordes_reportes">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <rect x="8" y="3" width="6" height="4" rx="2" />
+                <circle cx="18" cy="18" r="4" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" />
+              </svg><p class="letra_botones">Reportes</p>
+            </div>
+          </div>  </a>
+          <div class="recuadro_botones_productos2">   
+            <a href="/productos">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="3" y1="21" x2="21" y2="21" />
+                <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+                <line x1="5" y1="21" x2="5" y2="10.85" />
+                <line x1="19" y1="21" x2="19" y2="10.85" />
+                <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+              </svg></span><p class="letra_botones">Productos</p>
+            </div></a>
+          
+          </div>
+          
+          {% if fechaFinal %}
+          <div class="recuadro_botones_productos2">   
+            <a href="/reportesVacunasVencimiento">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-vaccine" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17 3l4 4" />
+                <path d="M19 5l-4.5 4.5" />
+                <path d="M11.5 6.5l6 6" />
+                <path d="M16.5 11.5l-6.5 6.5h-4v-4l6.5 -6.5" />
+                <path d="M7.5 12.5l1.5 1.5" />
+                <path d="M10.5 9.5l1.5 1.5" />
+                <path d="M3 21l3 -3" />
+              </svg></span><p class="letra_botones_vencimiento">Vencimientos Vacunas</p>
+            </div></a>
+          
+          </div>
+            {% endif %}
+
+            {% if fechaFinal15 %}
+          <div class="recuadro_botones_productos2">   
+            <a href="/reportesVacunasVencimiento">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-vaccine" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffec00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17 3l4 4" />
+                <path d="M19 5l-4.5 4.5" />
+                <path d="M11.5 6.5l6 6" />
+                <path d="M16.5 11.5l-6.5 6.5h-4v-4l6.5 -6.5" />
+                <path d="M7.5 12.5l1.5 1.5" />
+                <path d="M10.5 9.5l1.5 1.5" />
+                <path d="M3 21l3 -3" />
+              </svg></span><p class="letra_botones_vencimiento15">Vencimientos Vacunas</p>
+            </div></a>
+          
+          </div>
+            {% endif %}
+
+            {% if fechaFinal30 %}
+          <div class="recuadro_botones_productos2">   
+            <a href="/reportesVacunasVencimiento">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-vaccine" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#7bc62d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17 3l4 4" />
+                <path d="M19 5l-4.5 4.5" />
+                <path d="M11.5 6.5l6 6" />
+                <path d="M16.5 11.5l-6.5 6.5h-4v-4l6.5 -6.5" />
+                <path d="M7.5 12.5l1.5 1.5" />
+                <path d="M10.5 9.5l1.5 1.5" />
+                <path d="M3 21l3 -3" />
+              </svg></span><p class="letra_botones_vencimiento30">Vencimientos Vacunas</p>
+            </div></a>
+          
+          </div>
+            {% endif %}
+          {% if mensajeSocio %}
+          <div class="recuadro_botones_productos">   
+            <a  id="btn-abrir-popup" class="btn btn-inverse">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-circle-2" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
+                <line x1="12" y1="12" x2="12" y2="12.01" />
+                <line x1="8" y1="12" x2="8" y2="12.01" />
+                <line x1="16" y1="12" x2="16" y2="12.01" />
+              </svg></span><p class="letra_botones" > 1 Nuevo Mensaje</p>
+            </div></a>
+            <div class="overlay" id="overlay">
+            <div class="popup" id="popup">
+              <div class="popup_contenido7">
+                         
+                <form action="/mensajeVeterinaria" method="POST" enctype="multipart/form-data" >
+                  <div >
+                    {% for mensaje in mensajeSocio %}
+                    <input type="hidden"  value="{{mensaje.0}}"id="" name="animal" rows="1" cols="10"></input>
+                    <input type="hidden"  id="" name="socio" value="{{mensaje.3}}"rows="1" cols="10"></input>
+                    <label class="datos_cliente_principal_nombre_si"> Socio {{mensaje.3}}</label>
+                    <img class="foto_mascota7" src="/static/fotos/{{mensaje.2}}">
+                    <label class="datos_cliente_principal_nombre_si"> {{mensaje.1}}</label>
+                    
+                    
+                  </div>
+                  <div class="popup_contenido_otros7">
+                    <div class="popup_contenido_motivo_consulta">
+                      <textarea class="popup_contenido_motivo_camposocio7" readonly>"{{mensaje.4}}"</textarea>  
+                      {% endfor %}
+                      <textarea  class="popup_contenido_motivo_campo7"id="" name="mensaje" rows="1" cols="40"></textarea>
+                    </div>
+                    <div class="popup_contenido_motivo_consultabotones7">
+                      <div><input type="submit" class="btn-submit"  value="Responder"></div>
+                      <div><input id="btn-cerrar-popup" type="submit" class="btn-cerrar-popup"  value="Cancelar"></div>
+                    </div>
+                  </div>
+                  
+                </form>
+            </div>
+
+            </div>  
+          </div>
+          </div>
+          {% endif %}
+        </section>
+         
+        <form  action="respaldo"  method="POST" enctype="multipart/form-data" >
+          <div class="botonesR" id="botonesR">
+              
+                
+                <div class="buscador_recuadro_divisiones_centro"> 
+                  <label>Unidad de Respaldo</label>
+                  <select type="text"id="descripcioncategoria" name="respaldo" >
+                    
+                    <option type="text" value="F">F</option>
+                    
+                    <option type="text" value="D">D</option>
+                    <option type="text" value="E">E</option>
+                    <option type="text" value="F">F</option>
+                    <option type="text" value="G">G</option>
+                    
+                  </select>
+                </div>
+                <div class="buscador_recuadro_divisiones_derecha_boton">
+                  <button type="submit"  class="btn10 btn-outline-success">Enviar</button>
+                </div> 
+          </div>
+        </form>
+                {% if mensaje %}
+                  <div align ='center'>
+                      <h1 class = "mensaje_respaldo">{{mensaje}}</h1>
+                  </div>
+                {% endif %}
+                {% if mensaje2 %}
+                  <div align ='center'>
+                      <h1 class = "mensaje_respaldo_no">{{mensaje2}}</h1>
+                  </div>
+                {% endif %}
+                      
+                                                                       
+                      
+                      
+                     
+                                
+                             
+                                  
+                               
+                 
+          
+        
+    </main>
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function openFormMascota() {
+          document.getElementById("myFormMascota").style.display = "block";
+        }
+        
+        function closeFormMascota() {
+          document.getElementById("myFormMascota").style.display = "none";
+        }
+    </script>
+    <script>
+      function openFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "block";
+      }
+      
+      function closeFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "none";
+      }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+ 
+
+  <!-- Template Custom JavaScript File -->
+  <script src="static/js/custom.js"></script>
+  
+  <script src="{{ url_for('static', filename='js/popup7.js') }}"></script> 
+  
+</body>
+
+</html>

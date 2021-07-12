@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Boston</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos5.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos11.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/acordeon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltiph.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Merienda:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Hachi+Maru+Pop&family=Merienda:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Hachi+Maru+Pop&family=Love+Ya+Like+A+Sister&family=Merienda:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Fredericka+the+Great&family=Montez&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Dawning+of+a+New+Day&family=Fredericka+the+Great&family=Montez&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">  
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+<body onload="nobackbutton();">
+  <header class="header">
+    <nav class="header_navegador2">
+        <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+        <div class="caja_icono2">
+          <a class="icono" href="/">
+            <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="5 12 3 12 12 3 21 12 19 12" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            
+          </a>
+          
+        </div>    
+        <a class ="icono_inicio2" href="/"> inicio</a>
+        
+        <div class="search_buscar2">
+          <form  action="/busqueda" method="POST" >
+          <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio" autocomplete="off" />
+          <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+          </svg> </button> 
+          </form> 
+          
+        </div>
+        <div class="mensaje_socio2">
+        {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+            {% if messages %}
+            {% for message in messages %}
+            
+              
+              <h5>{{message}}</h5> 
+              
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div> 
+                
+            
+          
+            
+         
+           
+        
+    </nav>
+</header>
+   
+    <main class="contenedor">
+        
+         
+        <div class="grid">
+            {% for persona in tabper %}
+           
+            <div class="cliente">
+                <div class="cliente_nombre_socio">
+                    <img class="cliente_nombre_socioimagen" src="{{ url_for('static', filename='img/clientes2.png') }}"  alt=""/>
+                    <label class="datos_cliente_principal_nombrecliente">{{persona.1}} {{persona.12}} {{persona.2}} {{persona.13}}</label>
+                    <label class="datos_cliente_principal_nombrecliente_socio"> {{persona.11}} </label> 
+                    
+                </div>
+                <div class="cliente_orden">   
+                    <!--<a href="producto.html">
+                            <img class="cliente_imagen" src="{{ url_for('static', filename='img/cliente.png') }}" >-->
+                            
+                            <label class="datos_cliente_principal">C.I.: <span>{{persona.0}}</span></label> 
+                            <label class="datos_cliente">Alta: {{persona.9}}</label>
+                            <label class="datos_cliente_principal">Dir.: {{persona.4}} {{persona.6}} apto.{{persona.20}}</label>
+                            <label class="datos_cliente">Esq.: {{persona.5}}</label>
+                            <label class="datos_cliente_principal">Tel.: - {{persona.7}} - {{persona.8}} </label> 
+                            <label class="datos_cliente">Mail: {{persona.3}}</label>
+                            <label class="datos_cliente_principal">Categoria: <span>{{persona.14}}</span></label>
+                            <label class="datos_cliente">Radio: {{persona.15}}</label>
+                            {% endfor %}
+                            {% if mas %}
+                            {% for mas in mas %}
+                            <label class="datos_cliente_principal">Mascota Titular: <span>{{mas}}</span></label>
+                              {% endfor %}
+                            {% endif %}     
+                </div>
+                
+                  
+                      
+            </div>
+             
+            <div class="mascota_d">
+              <div class="mascota_nombre">
+                
+                  <label class="datos_cliente_principal_nombre_si"> {% for mascotaedit in tabmascotaeditar %}{{mascotaedit.1}}{% endfor %} </label>
+                  <label class="datos_cliente_principal_nombre_no"> {% for mascotaedit2 in tabmascotaeditar2 %}{{mascotaedit2.1}}{% endfor %} </label>
+                   {% if mascotaEstrella1 or mascotaEstrella2%} 
+                   <img class="estrella" src="{{ url_for('static', filename='img/estrellas.png') }}"  alt=""/>
+                   
+                  
+                   {% endif %}
+              </div>
+              {% if tabmascotaeditar5 %}
+              <div class="mascota_orden">   
+                <div class="mascota_orden_datos">
+                  {% for mascotaedit3 in tabmascotaeditar5 %}
+                  <label class="datos_mascota">Espécie: {{mascotaedit3.13}}</label>
+                  <label class="datos_mascota">Raza: {{mascotaedit3.12}}</label>
+                  <label class="datos_mascota">Sexo: {{mascotaedit3.2}}</label>
+                  <label class="datos_mascota">Chip/Tatu: {{mascotaedit3.18}}</label>
+                  {% endfor %}
+                  {% if nuevaVacuna %}
+                  <label class="datos_mascota">Edad: {{fechaFinal}}</label>
+                  {% endif %}
+                </div>
+                {% for mascotaedit3 in tabmascotaeditar5 %}
+                  <img class="foto_mascota" src="/static/fotos/{{mascotaedit3.14}}">
+                <div class="mascota_orden_datos2">
+                  <label class="datos_mascota">Alta: {{mascotaedit3.15}}  </label>
+                  <label class="datos_mascota">Peso: {{mascotaedit3.6}}</label>
+                  <label class="datos_mascota">Talla: {{mascotaedit3.5}}  </label> 
+                  <label class="datos_mascota">Color: {{mascotaedit3.4}}  </label> 
+                  {% endfor %}
+                  {% if nuevaVacuna %}
+                  <label class="datos_mascota">Vacuna:{{nuevaVacuna}}  </label>
+                  {% endif %}
+                </div>
+                {% endif%}
+              {% if tabmascotaeditar3 %}
+              <div class="mascota_orden">   
+                <div class="mascota_orden_datos">
+                  {% for mascotaedit3 in tabmascotaeditar3 %}
+                  <label class="datos_mascota">Espécie: {{mascotaedit3.13}}</label>
+                  <label class="datos_mascota">Raza: {{mascotaedit3.12}}</label>
+                  <label class="datos_mascota">Sexo: {{mascotaedit3.2}}</label>
+                  
+                  {% endfor %}
+                  {% if fechaFinal %}
+                  <label class="datos_mascota">Edad: {{fechaFinal}}</label>
+                  {% endif %}
+                  {% for mascotaedit3 in tabmascotaeditar3 %}
+                  <label class="datos_mascota"> Chip/Tatuaje: {{mascotaedit3.18}}</label>
+                  {% endfor %}
+                </div>
+                {% for mascotaedit3 in tabmascotaeditar3 %}
+                  <img class="foto_mascota" src="/static/fotos/{{mascotaedit3.14}}">
+                <div class="mascota_orden_datos2">
+                  <label class="datos_mascota">Alta: {{mascotaedit3.15}}  </label>
+                  <label class="datos_mascota">Peso: {{mascotaedit3.6}}</label>
+                  <label class="datos_mascota">Talla: {{mascotaedit3.5}}  </label> 
+                  <label class="datos_mascota">Color: {{mascotaedit3.4}}  </label> 
+                  {% endfor %}
+                  {% if nuevaVacuna %}
+                  <label class="datos_mascota">Vacuna:{{nuevaVacuna}}  </label>
+                  {% endif %}
+                </div>
+                {% endif%}
+                
+                
+                          
+                          
+            </div>
+               
+              
+              
+                  </div>
+                    
+                                          
+                  
+                  <div class="mascota">
+                    {% if sinMascota %} 
+                  {% for mascotadetalle in sinMascota %}
+                    
+                    <div class="mascota_caja">  
+                      
+                      <a  onclick="openFormMostrarMascota()" class="" href="/seleccionarMascota/{{mascotadetalle.1}}" >
+                      
+                      <img class="mascota_foto_si" src="/static/fotos/{{mascotadetalle.2}}" >
+                      </a>
+                      
+                      
+                      <p class="nombre_mascota_si"> {{mascotadetalle.0}}</p>
+                      
+                    </div>
+                    {% endfor %}
+                  {% endif %} 
+                    
+                  {% if tabmascota %} 
+                    {% for mascotadetalle in tabmascota %}
+                    <div class="mascota_caja">  
+                      
+                      <a  onclick="openFormMostrarMascota()" class="" href="/seleccionarMascota/{{mascotadetalle.1}}" >
+                      
+                      <img class="mascota_foto_si" src="/static/fotos/{{mascotadetalle.2}}" >
+                      </a>
+                      
+                      
+                      <p class="nombre_mascota_si"> {{mascotadetalle.0}}</p>
+                      
+                    </div>
+                    {% endfor %}
+                  {% endif %}
+                   
+                    
+                    {% for mascotadetalle2 in mascotadetalle2 %}
+                    <div class="mascota_caja">  
+                      
+                      <a  class="" href="/seleccionarMascota/{{mascotadetalle2.1}}" >
+                      
+                      <img class="mascota_foto_no" src="/static/fotos/{{mascotadetalle2.2}}" >
+                      </a>
+                      
+                      
+                      <p class="nombre_mascota_no"> {{mascotadetalle2.0}}</p>
+                      
+                    </div>
+                    {% endfor %}
+
+                    {% if mascotadetallesi %} 
+                    {% for mascotadetalle in mascotadetallesi %}
+                    <div class="mascota_caja">  
+                      
+                      <a  onclick="openFormMostrarMascota()" class="" href="/seleccionarMascota/{{mascotadetalle.1}}" >
+                      
+                      <img class="mascota_foto_si" src="/static/fotos/{{mascotadetalle.2}}" >
+                      </a>
+                      
+                      
+                      <p class="nombre_mascota_si"> {{mascotadetalle.0}}</p>
+                      
+                    </div>
+                    {% endfor %}
+                  {% endif %}
+                   
+                  {% if mascotadetalleno %}
+                    {% for mascotadetalle2 in mascotadetalleno %}
+                    <div class="mascota_caja">  
+                      
+                      <a  class="" href="/seleccionarMascota/{{mascotadetalle2.1}}" >
+                      
+                      <img class="mascota_foto_no" src="/static/fotos/{{mascotadetalle2.2}}" >
+                      </a>
+                      
+                      
+                      <p class="nombre_mascota_no"> {{mascotadetalle2.0}}</p>
+                      
+                      
+                    </div>
+                    
+                    {% endfor %}
+                    {% endif %}
+                    {% if mascotaSi or mascotaNo %}
+                  <div class="mascota_caja"> 
+                    
+                    <div class="popup10" onclick="myFunction10()">
+                      
+                      <svg  class="mascota_foto_si_mas" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <circle cx="12" cy="12" r="9" />
+                      <line x1="9" y1="12" x2="15" y2="12" />
+                      <line x1="12" y1="9" x2="12" y2="15" />
+                    </svg>
+                    <span class="popuptext10" id="myPopup10">
+                      <div class="mascota2">
+                    
+                    
+                    
+                         
+                          {% for mascotadetalle in mascotaSi %}
+                          <div class="mascota_caja2">  
+                            
+                            <a  onclick="openFormMostrarMascota()" class="" href="/seleccionarMascota/{{mascotadetalle.1}}" >
+                            
+                            <img class="mascota_foto_si_mas2" src="/static/fotos/{{mascotadetalle.2}}" >
+                            </a>
+                            
+                            
+                            <p class="nombre_mascota_si"> {{mascotadetalle.0}}</p>
+                            
+                          </div>
+                          {% endfor %}
+                        
+                         
+                          
+                          {% for mascotadetalle2 in mascotaNo %}
+                          <div class="mascota_caja2">  
+                            
+                            <a  class="" href="/seleccionarMascota/{{mascotadetalle2.1}}" >
+                            
+                            <img class="mascota_foto_no_mas2" src="/static/fotos/{{mascotadetalle2.2}}" >
+                            </a>
+                            
+                            
+                            <p class="nombre_mascota_no"> {{mascotadetalle2.0}}</p>
+                            
+                          </div>
+                          {% endfor %}
+                      </div>    
+                          <div class="titulo_saliradjuntos">
+                            <a  href="#" ><div class="btn2_cancel_adjuntos" onclick="closeFormAdjuntos()" >Salir</div></a>
+                          </div> 
+                        
+                    </span> 
+                  </div>
+                
+                  {% endif %}         
+                      
+                          
+                               
+                          
+                       
+                  </div> 
+                </div>  <!--.producto-->
+                  
+                  
+            </div>                                                          
+            <div>
+              {% with messages = get_flashed_messages(with_categories=False, category_filter=["radio"])  %}
+              {% if messages %}
+              {% for message in messages %}
+            <div>
+              <h5 style="color:red" >{{message}} </h5> 
+            </div>
+              {% endfor %}
+              {% endif %}
+              {% endwith %}
+         
+            </div> 
+            {% if mensajeci %}
+            <section class="grid_opciones_mensajes"> 
+              
+              
+               <div class= "mensaje_editar_cliente">
+                <h5>{{mensajeci}}</h5> 
+              </div>  
+             
+              
+            </section>
+            {% endif %}
+            
+            
+            
+            {% if mensajeciok %}
+            <section class="grid_opciones_mensajes"> 
+              <div class= "mensaje_editar_clienteok">
+                <h5>{{mensajeciok}}</h5> 
+              </div>  
+            </section>
+            {% endif %}
+           
+            
+            
+            {% if mensajecimascotaok %}
+            <section class="grid_opciones_mensajes"> 
+              <div class="mensaje_editar_mascotavacio">
+                <h5></h5> 
+              </div>
+              <div class= "mensaje_editar_mascota">
+                <h5>{{mensajecimascotaok}}</h5> 
+              </div> 
+              </section>
+            {% endif %}
+            {% if mensajeaddmascota %}
+            <section class="grid_opciones_mensajes"> 
+              <div class="mensaje_editar_mascotavacio">
+                <h5></h5> 
+              </div>
+              <div class="mensaje_editar_mascotavacio2">
+                <h5></h5> 
+              </div>
+              <div class= "mensaje_agregar_mascota">
+                <h5>{{mensajeaddmascota}}</h5> 
+              </div> 
+              </section>
+            {% endif %}
+            {% if mensajeaddmascotano %}
+            <section class="grid_opciones_mensajes"> 
+              <div class="mensaje_editar_mascotavacio">
+                <h5></h5> 
+              </div>
+              <div class="mensaje_editar_mascotavacio2">
+                <h5></h5> 
+              </div>
+              <div class= "mensaje_agregar_mascota_no">
+                <h5>{{mensajeaddmascotano}}</h5> 
+              </div> 
+              </section>
+            {% endif %}
+
+          <section class="grid_opciones">
+          {% for persona in tabper %}
+          <div class="direccion_editarcliente">
+          <button class="open-button" onclick="openForm()">Editar Cliente</button>
+                <div class="form-popup" id="myForm">
+                    <form action="/actualizar_cliente/{{persona.11}}" class="form-container" method="POST">
+                    <div class="cliente_orden">   
+                      <div hidden>Número de Socio </div>  <input type="text" name="numsocio" value="{{persona.11}}" required  autocomplete="off" class="form-control" hidden>
+                      <div>Número de cédula </div>  <input type="text" name="CIpersona" value="{{persona.0}}" required  class="form-control" autocomplete="off" pattern="[0-9]+" title="Ingrese solamente números">
+                      <div>Nombre </div>  <input type="text" name="nombre" value="{{persona.1}}" minlength="2" maxlength="20" autocomplete="off" required  title="Ingrese letras" class="form-control">  
+                      
+                      <div>Segundo Nombre </div>  <input type="text" name="snombre" value="{{persona.12}}" minlength="2" maxlength="20" autocomplete="off"  title="Ingrese letras" class="form-control">
+                      <div>Apellido</div>   <input type="text" name="apellido" value="{{persona.2}}" minlength="2" maxlength="20" autocomplete="off" required  class="form-control">
+                      <div>Segundo Apellido </div>  <input type="text" name="sapellido" value="{{persona.13}}" minlength="2" maxlength="20" autocomplete="off"  title="Ingrese letras" class="form-control">
+                      <div>Email </div>  <input type="text" name="correoElectronico" value="{{persona.3}}" autocomplete="off" class="form-control">
+                      <div>Calle </div>  <input type="text" name="calle" value="{{persona.4}}" minlength="3" maxlength="100" autocomplete="off"  class="form-control">
+                      <div>Número </div>  <input type="text" name="numero" value="{{persona.6}}" minlength="1" maxlength="10" autocomplete="off" pattern="[0-9]+{-}" class="form-control">
+                      <div>Apto. </div>  <input type="text" name="apto" value="{{persona.20}}" minlength="1" maxlength="10" autocomplete="off" pattern="[0-9]+{-}" class="form-control">
+                      <div>Esquina </div>  <input type="text" name="esquina" value="{{persona.5}}" minlength="3" maxlength="100" autocomplete="off"  class="form-control">
+                      <div>Dir. Cobro </div>  <input type="text" name="calleC" value="{{persona.18}}" minlength="3" maxlength="100" autocomplete="off"  class="form-control">
+                      <div>Número </div>  <input type="text" name="numeroC" value="{{persona.19}}" minlength="1" maxlength="10" autocomplete="off" pattern="[0-9]+{-}" class="form-control">
+                      <div>Apto. </div>  <input type="text" name="aptoC" value="{{persona.21}}" minlength="1" maxlength="10" autocomplete="off" pattern="[0-9]+{-}" class="form-control">
+                      <div>Esquina </div>  <input type="text" name="esquinaC" value="{{persona.22}}" minlength="3" maxlength="100" autocomplete="off"  class="form-control">
+                      <div>Teléfono 1 </div>  <input type="text" name="telefono1" value="{{persona.7}}" minlength="5" maxlength="9" autocomplete="off" pattern="[0-9]+{-}" required title="Ingrese solamente números" class="form-control">
+                      <div>Teléfono 2  </div> <input type="text" name="telefono2" value="{{persona.8}}" minlength="5" maxlength="50" autocomplete="off" pattern="[A-Za-z0-9\s]+{-}"  required  class="form-control">
+                                                                        <!--<div>Fecha de Alta  </div> <input type="text" name="fechaAlta" value="{{persona.9}}" class="form-control">-->
+                      <div>Categoria  </div> 
+                      <select type="text"id="descripcioncategoria" name="categoria" >
+                        <option type="text" value="{{persona.14}}">{{persona.14}}</option>
+                        <option type="text" value="A" id="interesadoNegativo" >A</option>
+                        <option type="text" value="C" id="interesadoNegativo" >C</option>
+                        <option type="text" value="P" id="interesadoPositivo">P</option>
+                      </select>
+                      <div>R </div> 
+                      <select type="text"id="reditar" name="r" >
+                        <option type="text" value="{{persona.15}}">{{persona.15}}</option>
+                      </select>
+                      <div id="id_label" hidden >Motivo de Baja</div>  <input type="text" id="id_input" name="baja" value="" minlength="15" maxlength="200" autocomplete="off" pattern="[A-Za-z\s]+{-}" title="Ingrese letras" class="form-control" hidden>
+                      
+                      
+                      <div id="titulardiv">Mascota Titular  </div> 
+                      
+                      <select type="text"id="titular" name="mascotaTitular">
+                        
+                        {% if mas2 %}
+                        {% for mas2 in mas2 %}
+                        <option type="text" value="{{mas2.0}}">{{mas2.1}}</option>
+                        {% endfor %}
+                      {% endif %}
+                      {% if mas3 %}
+                      {% for mas3 in mas3 %}
+                      <option type="text" value="{{mas3.0}}">{{mas3.1}}</option>
+                      {% endfor %}
+                      {% endif %}
+                      </select>
+                      
+                      
+                      <!--<button type="submit" class="btn">Guardar</button>
+                      <button type="submit" class="btn cancel" onclick="closeForm()">Salir</button>-->
+                      <button type="submit" class="btn2_guardar " >Guardar</button>
+                      <a href="#" ><div class="btn2_cancel_especie" onclick="closeForm()" >Salir</div></a>
+                    </div>
+                    </form>
+                  </div>
+                </div> 
+                  {% endfor %}
+                  
+                  
+              <div class="direccion_editarcliente">  
+                <button class="open-button" onclick="openFormMascota()">Editar Mascota</button>
+                  <div class="form-popup2" id="myFormMascota">
+                    {% if tabmascotaeditar3 %} 
+                    {% for mascotaedit3 in tabmascotaeditar3 %}
+                     <form action="/actualizar_mascota/{{mascotaedit3.0}}" class="form-container2" method="POST" enctype="multipart/form-data">
+                      {% endfor %}
+                      {% for persona in tabper %}
+                      <div class="cliente_orden">   
+                          <div></div>  <input type="hidden" name="CIpersona" value="{{persona.0}}" required readonly="readonly" class="form-control">
+                          <div></div>  <input type="hidden" name="numsocio" value="{{persona.11}}" required readonly="readonly" class="form-control">
+                          {% endfor %}
+                          {% for mascotaedit3 in tabmascotaeditar3 %}
+                          <div>Nombre </div>  <input type="text" value="{{mascotaedit3.1}}" name="nombre" autocomplete="off" minlength="2" maxlength="20" required pattern="[A-Za-z\s]+"title="Ingrese letras">  
+                          {% endfor %}
+                          
+                          <div class="box">Espécie</div> 
+                          <select type="text"name="descripcion" id = "descripcion" required>
+                            {% for mascotaedit3 in tabmascotaeditar3 %}
+                            <option type="text"value="{{mascotaedit3.16}}">Seleccionar Espécie</option>
+                            
+                            {% endfor %}
+                            {% for espe in especie %}
+                            <option type="text"value ="{{ espe.0 }}">{{ espe.1 }}</option>
+                            {% endfor %}
+                          </select>
+                          
+                          <div class="box">Raza</div>
+                          <select type="text"name="raza" id = "raza3" required>
+                            {% for mascotaedit3 in tabmascotaeditar3 %}
+                            <option type="text"value="{{mascotaedit3.11}}">{{mascotaedit3.12}}</option>
+                            {% endfor %}
+                          </select> 
+                    
+                          
+                            {% for mascotaedit3 in tabmascotaeditar3 %}
+                          <div>Sexo</div> 
+                          <select type="text"id="sexo" name="sexo" placeholder="Seleccionar" required>
+                            <option type="text"value="{{mascotaedit3.2}}">{{mascotaedit3.2}}</option>
+                            <option type="text"value="Hembra">Hembra</option>
+                            <option type="text"value="Macho">Macho</option>
+                            
+                          </select>
+                          <div>Peso </div>  <input type="text" value="{{mascotaedit3.6}}" name="peso" autocomplete="off" pattern="[0-9]+(\,[0-9])+" title="ingrese numeros" >
+                          <div>Talla</div> 
+                             
+                              <select type="text"id="talla" name="talla"  placeholder="Seleccionar">
+                                <option type="text" value="{{mascotaedit3.5}}">{{mascotaedit3.5}}</option>
+                                <option type="text" value="Toy">Toy</option>
+                                <option type="text" value="Chico">Chico</option>
+                                <option type="text" value="Mediano">Mediano</option>
+                                <option type="text" value="Grande">Grande</option>
+                                <option type="text" value="Gigante">Gigante</option>
+                              </select>
+                          
+                         
+                          <div>Color de Pelo </div>  <input type="text" value="{{mascotaedit3.4}}" name="color" autocomplete="off"  placeholder="" minlength="2" maxlength="10" pattern="[A-Za-z\s]+{-}"title="Ingrese letras">
+                          <div>Activo </div>  
+                          <select type="text" id="activo" name="activo" placeholder="Seleccionar" required>
+                            <option type="text" value="{{mascotaedit3.7}}">{{mascotaedit3.7}}</option>
+                            <option type="text" value="Si">Si</option>
+                            <option type="text" value="No">No</option>
+                          </select>
+                          {% if fechaActual %}
+                          <div>Fecha Nacimiento </div>  <input type="date" value="{{mascotaedit3.10}}" autocomplete="off" name="fechaNacimiento" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" max = "{{fechaActual}}" required>{% endif %}
+                          <div>Chip o Tatuaje </div>  <input type="text" value="{{mascotaedit3.18}}" name="chip" autocomplete="off" minlength="2" maxlength="200">
+                          {% if fechaActual %}
+                          <div>Fecha Vacuna </div>  <input type="date" value="" autocomplete="off" name="fechaVacuna" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" max = "{{fechaActual}}">{% endif %}
+                          <div>Comentário </div>  <input type="text" value="{{mascotaedit3.17}}" name="comentario" autocomplete="off" minlength="2" maxlength="200">
+                          <div>Foto Mascota</div><input type="file" name="foto" />
+                          {% endfor %}
+                          <!--<button type="submit" class="btn2">Guardar</button>
+                          <button type="submit" class="btn2 cancel2" onclick="closeFormMascota()">Salir</button>-->
+                          <button type="submit" class="btn2 cancel2 ">Guardar</button>
+                          <a href="#" ><div class="btn2_cancel_especie" onclick="closeFormMascota()" >Salir</div></a>
+                        </div>
+                      </form>
+                      {% endif %}
+                    </div>
+            </div>
+            {% for persona in tabper %}
+            <div class="direccion_editarmascota">  
+              <button class="open-button" onclick="openFormEditarMascota()">Agregar Mascota</button>
+                <div class="form-popup2" id="myFormEditarMascota">
+                  <div class="cliente_orden">
+                    <div>Nueva Espécie<a href="#miModal_especie"><img  title="Adjuntos" class="icono_agregarespecie" src="{{ url_for('static', filename='img/add.png') }}"  alt="Adjuntos"></a> </div> 
+                    <div id="miModal_especie" class="modal">
+                      <div class="modal-contenido_especie">
+                        <form action="/agregarEspecie" class="form-container2" method="POST" enctype="multipart/form-data">
+                        {% for mascotaedit3 in tabmascotaeditar3 %}
+                          <input type="hidden" name="mascota" value="{{mascotaedit3.0}}" >
+                          {% endfor %}
+                          {% for persona in tabper %}
+                          <input type="hidden" name="soc" value="{{persona.11}}" >
+                          {% endfor %}
+                          <input class="input_nuevaespecie" type="text" name="descripcion" placeholder="Nueva Espécie" autocomplete="off" minlength="2" maxlength="10" pattern="[A-Za-z\s]+"title="Ingrese letras">
+                          <button type="submit" class="btn2 cancel2 ">Guardar</button>
+                          <a href="#" ><div class="btn2_cancel_especie" >Salir</div></a>
+                       </div>  
+                        </form>
+                    </div>
+                    
+                    <div>Nueva Raza<a href="#miModal_raza"><img  title="Adjuntos" class="icono_agregarespecie" src="{{ url_for('static', filename='img/add.png') }}"  alt="Adjuntos"></a> </div> 
+                    <div id="miModal_raza" class="modal">
+                      <div class="modal-contenido_raza">
+                        <form action="/agregarRaza" class="form-container2" method="POST" enctype="multipart/form-data">
+                        {% for mascotaedit3 in tabmascotaeditar3 %}
+                          <input type="hidden" name="mascota" value="{{mascotaedit3.0}}" >
+                          {% endfor %}
+                          {% for persona in tabper %}
+                          <input type="hidden" name="soc" value="{{persona.11}}" >
+                          {% endfor %}
+                          <select type="text"name="descrip" id = "addraza" required >
+                            <option type="text"value="">Selec. Espécie</option>
+                            {% for espe in especie %}
+                            <option type="text" name ="" value ="{{ espe.0 }}">{{ espe.1 }}</option>
+                            {% endfor %}
+                          </select>
+                          
+                        <select class="select_oculto" type="text" name="idespecie" id = "espe">
+                          <option class="select_oculto" type="text"value=""></option>
+                          </select> 
+                          
+                          <input class="input_nuevaespecie" type="text" name="descripcion" placeholder="Nueva Raza" autocomplete="off"  pattern="[A-Za-z\s]+"title="Ingrese letras">
+                          <button type="submit" class="btn2 cancel2 ">Guardar</button>
+                          <a href="#" ><div class="btn2_cancel_especie" >Salir</div></a>
+                       </div>  
+                        </form>
+                    </div>  
+                  </div>
+                   <form action="/agregar_mascota" class="form-container2" method="POST" enctype="multipart/form-data">
+                      <div class="cliente_orden">   
+                        <div></div>  <input type="hidden" name="CIpersona" value="{{persona.0}}" required readonly="readonly" class="form-control">
+                        <div></div>  <input type="hidden" name="numsocio" value="{{persona.11}}" required readonly="readonly" class="form-control">
+                        {% endfor %}
+                        <div>Nombre </div>  <input type="text" name="nombre" minlength="2" maxlength="20" autocomplete="off" required pattern="[A-Za-z\s]+"title="Ingrese letras">  
+                        <div class="box">Espécie</div> 
+                        <select type="text"name="descrip" id = "descrip"  required >
+                          <option type="text"value="">Seleccionar Espécie</option>
+                          {% for espe in especie %}
+                          <option type="text"value ="{{ espe.0 }}">{{ espe.1 }}</option>
+                          {% endfor %}
+                        </select>
+                        
+                        <div class="box">Raza</div>
+                        <select type="text"name="raza" id = "raza2" required>
+                          <option type="text"value="">Seleccionar Raza</option>
+                          </select>                            
+                         
+                   
+                  
+                        
+                        
+                        <div>Sexo</div> 
+                        <b> Hembra  <input type="radio" id="hembra" name="sexo" required value="Hembra"> Macho<input type="radio" id="macho" name="sexo" value="Macho"></b>
+                        <div>Peso </div>  <input type="text" name="peso" autocomplete="off" pattern="[0-9]+(\,[0-9])+" title="ingrese numeros" >
+                        <div>Talla</div> 
+                           
+                            <select type="text"id="talla" name="talla" placeholder="Seleccionar">
+                              <option type="text"value="-">Seleccionar Talla</option>
+                              <option type="text"value="Toy">Toy</option>
+                              <option type="text"value="Chico">Chico</option>
+                              <option type="text"value="Mediano">Mediano</option>
+                              <option type="text"value="Grande">Grande</option>
+                              <option type="text"value="Gigante">Gigante</option>
+                            </select>
+                        
+                        
+                        <div>Color de Pelo </div>  <input type="text" name="color" placeholder="" autocomplete="off" minlength="2" maxlength="10" pattern="[A-Za-z\s]+"title="Ingrese letras">
+                        <div>Estado </div>  
+                          <b> Activo <input type="radio" id="cliActivo" name="activo" value="Si" checked>Inactivo <input type="radio" id="cliInactivo" name="activo" value="No" required></b>
+                          {% if fechaActual %}
+                        <div>Fecha Nacimiento </div>  <input type="date" name="fechaNacimiento" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" max="{{fechaActual}}" required>
+                        {% endif %}
+                        <div>Chip o Tatuaje </div>  <input type="text" value="" name="chip" autocomplete="off" minlength="2" maxlength="200">
+                        <div>Comentário </div>  <input type="text" value="" name="comentario" autocomplete="off" minlength="2" maxlength="200">
+                        <div>Foto Mascota</div><input type="file" name="foto" />
+                      
+                                                                       
+                        <button type="submit" class="btn2 cancel2 ">Guardar</button>
+                        <a href="#" ><div class="btn2_cancel_especie" onclick="closeFormEditarMascota()" >Salir</div></a>
+                      
+                      <!--<button type="submit" class="btn2">Guardar</button>
+                      <button type="submit" class="btn2 cancel2" onclick="closeFormEditarMascota()">Salir</button>-->
+                    </div>
+                    </form>
+                  </div>
+          </div>
+        </section>                        
+        {% if mensajecimascotaavisook %}
+            <section class="grid_opciones_mensajes_atencion"> 
+              <div class="mensaje_editar_mascotavacio">
+                <h5></h5> 
+              </div>
+              <div class= "mensaje_editar_mascota_aviso_atencion">
+                
+                <h5>ATENCION! {{mensajecimascotaavisook}}</h5> 
+              </div> 
+            </section>
+            {% endif %}                     
+        <section class="historia">
+             
+          <div class="columnas">
+           
+             <div class="columnas_division">Fecha</div>   
+             <div class="columnas_division">Motivo Consulta </div>
+             <div class="columnas_division" >EOG</div>
+             <div class="columnas_division">Anamnesis</div>
+             <div class="columnas_division">EOP</div>
+             <div class="columnas_division">Colat./ Diag. Pres.</div>
+             <div class="columnas_division">Tratamiento</div>
+             <div class="columnas_division_excel" >
+               <a href="{{url_for('static', filename='img/Consultas.xlsx')}}" class="" download = "Consultas.xlsx" title="Reporte en excel" >
+                 <img class="columnas_division_adjuntos" src="{{ url_for('static', filename='img/consultas.png') }}"  width = "20px" high = "10px"alt=""/></a>
+             </div>
+             <div class="columnas_division" >
+               <a href="#miModal"><img   title="Adjuntos" class="columnas_division_adjuntos" src="{{ url_for('static', filename='img/adjuntos.png') }}"  alt="Adjuntos"></a>
+               
+               <div id="miModal" class="modal">
+                 <div class="modal-contenido">
+                   
+                  <div class="titulo_adjunto">Adjuntos</div>
+                  <div class="caja_adjuntos">
+                    <div class="grid_adjuntos">
+                       <div class="columnas_division_adjuntosdesc">Fecha</div>   
+                       <div class="columnas_division_adjuntosdesc">Descripción </div>
+                       <div class="columnas_division_adjuntosdesc" >Archivo</div>
+                       <div class="columnas_division_adjuntosdesc" >Ver</div>
+                     
+                     {% for adjuntos in tabadjuntos %}
+                       <div class="columnas_division_adjuntosver">{{adjuntos.1}}</div>   
+                       <div class="columnas_division_adjuntosver">{{adjuntos.2}}</div>
+                       <div class="columnas_division_adjuntosver" >{{adjuntos.0}}</div>
+                       <div class="columnas_division_adjuntosver_icono"><a href="/buscar_adjunto/{{adjuntos.0}}" class="" download = {{adjuntos.0}}  >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon2 icon-tabler icon-tabler-eye" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <circle cx="12" cy="12" r="2" />
+                          <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                        </svg> </a>
+                    </div>
+                         {% endfor %}
+                         
+                     </div>
+                    </div>
+                     <div class="titulo_saliradjuntos">
+                      <a  href="#" ><div class="btn2_cancel_adjuntos" onclick="closeFormAdjuntos()" >Salir</div></a>
+                    </div> 
+                  </div>  
+               </div>
+             </div>
+             <div class="columnas_division" >
+               <a id="btn-abrir-popup" class="btn btn-inverse">
+                 <img  title="Nueva Consulta" class="columnas_division_adjuntos" src="{{ url_for('static', filename='img/agregar.png') }}"  alt="Nueva Consulta">
+               </a>
+                 <div class="overlay" id="overlay">
+                   <div class="popup" id="popup">
+                     <label><h3>Nueva Consulta</h3></label>
+                     
+                       <div class="popup_contenido">
+                         
+                           <form action="/agregar_consulta" method="POST" enctype="multipart/form-data" >
+                             <div class="popup_contenido_motivo">
+                               {% for mascotaedit in tabmascotaeditar3 %}
+                               <input type="hidden" class="popup_contenido_motivo_consulta" value="{{mascotaedit.0}}"id="" name="id" rows="1" cols="10"></input>
+                               <input type="hidden" class="popup_contenido_motivo_consulta" id="" name="CIpersonaveterinario" value="18767665"rows="1" cols="10"></input>
+                               {% endfor %}
+                               
+                             </div>
+                             <div class="popup_contenido_otros">
+                              <div class="popup_contenido_otroscampos">
+                                 <p class="popup_contenido_motivo_consulta_nombre">Motivo de Consulta</p>
+                                 <textarea  class="popup_contenido_otroscampos_columna" id="" name="motivo" rows="4" cols="50"></textarea>
+                                 
+                                </div>
+                                
+                               <div class="popup_contenido_otroscampos">
+                                 <p class="popup_contenido_motivo_consulta_nombre">EOG</p>
+                                 <textarea class="popup_contenido_otroscampos_columna" id="" name="eog" rows="4" cols="50"></textarea>
+                               </div>
+                               <div class="popup_contenido_otroscampos">
+                                 <p class="popup_contenido_motivo_consulta_nombre">Anamnesis</p>
+                                 <textarea class="popup_contenido_otroscampos_columna" id="" name="anamnesia" rows="4" cols="50"></textarea>
+                               </div>
+                               <div class="popup_contenido_otroscampos">  
+                                 <p class="popup_contenido_motivo_consulta_nombre">EOP</p>
+                                 <textarea class="popup_contenido_otroscampos_columna" id="" name="eop" rows="4" cols="50"></textarea>
+                               </div>
+                               <div class="popup_contenido_otroscampos"> 
+                                 <p class="popup_contenido_motivo_consulta_nombre">Colaterales Sugeridos / Diagnóstico Presuntivo</p>
+                                 <textarea class="popup_contenido_otroscampos_columna" id="" name="colaterales" rows="4" cols="50"></textarea>
+                               </div> 
+                               <div class="popup_contenido_otroscampos" > 
+                                 <p class="popup_contenido_motivo_consulta_nombre">Tratamiento</p>
+                                 <textarea class="popup_contenido_otroscampos_columna" id="" name="tratamiento" rows="4" cols="50"></textarea>
+                               </div>
+                               <div class="popup_contenido_otroscampos" > 
+                                <b class="popup_contenido_motivo_consulta_nombre">Vacuna Anual   Si  <input type="radio" id="si" name="vacuna" required value="si"> No<input type="radio" id="no" name="vacuna" value="no"></b>
+                              </div>
+                              
+                                <div>
+                                  <input type="submit" class="btn-submit"  value="Guardar">
+                                  <input id="btn-cerrar-popup" type="submit" class="btn-cerrar-popup"  value="Cancelar">
+                                </div>
+                               
+                             </div>
+                             
+                           </form>
+                       </div>
+                       
+                       
+                       
+                   </div>  
+                 </div>        
+             </div>
+        </section> 
+        
+      
+          
+          
+          
+      
+        
+        {% for historia in tabhistoria %}
+        <section class="historia_datos">
+         
+          <div class="columnas_datos">
+          
+              <div class="columnas_division_datos_fecha"><span class="tooltiptexth"    title="{{historia.8}}" >{{historia.8}}</span> </div>
+              <div class="columnas_division_datos"><span class="tooltiptexth"   title="{{historia.0}}" >{{historia.0}}</span> </div>
+              <div class="columnas_division_datos"><span  class="tooltiptexth"   title="{{historia.2}}" >{{historia.2}}</span> </div>
+              <div class="columnas_division_datos"><span  class="tooltiptexth"   title="{{historia.1}}" >{{historia.1}}</span> </div>
+              <div class="columnas_division_datos"><span  class="tooltiptexth"   title="{{historia.5}}" >{{historia.5}}</span> </div>
+              <div class="columnas_division_datos"><span  class="tooltiptexth"   title="{{historia.6}}" >{{historia.6}}</span> </div>
+              <div class="columnas_division_datos"><span  class="tooltiptexth"   title="{{historia.4}}" >{{historia.4}}</span> </div>
+              
+              <div class="columnas_division_datos_adjunto"> 
+               <form class="input-append" action="/agregar_adjunto" method="POST" enctype="multipart/form-data">
+                  <input class="search-form" style="width:70px;height:20px" id="appendedPrependedInput" type="hidden" name="consultanum" value="{{historia.11}}" />
+                  <button  class="boton_adjuntos" type="submit" title="Adjuntos en história">{{historia.12}} </button>
+                  <label><img class="imagen_agregar"src="{{ url_for('static', filename='img/add.png') }}" title="Nuevo Adjunto"><input class="seleccionar" type="file" name="archivo" required ></input></label>
+                  <button class="boton_subir" type="submit"><img title="Guardar" class="imagen_agregar"src="{{ url_for('static', filename='img/subir.png') }}"> </button>
+                  
+                  
+                  <input class="nombre_adjunto" type="text"  name="tituloadjunto" placeholder="Nombre Archivo" required>
+                  
+                     
+                  </form>
+              </div>
+          </div>        
+        </section>  
+       
+       <div class="accordion-container">
+        <a href="#" class="accordion-titulo"><span class="toggle-icon"></span></a>
+        <div class="accordion-content">
+            
+         <div class = "titulo_consultas"> <p>Motivo</p> </div>    
+          <p>{{historia.0}}</p>
+          <div class = "titulo_consultas"> <p>EOG</p> </div>   
+          <p>{{historia.2}}</p>  
+          <div class = "titulo_consultas"> <p>Anamnesis</p> </div>     
+          <p>{{historia.1}}</p>
+          <div class = "titulo_consultas"> <p>EOP</p> </div>   
+          <p>{{historia.5}}</p> 
+          <div class = "titulo_consultas"> <p>Colaterales y Diagnostigo Presuntivo</p> </div> 
+          <p>{{historia.6}}</p>
+          <div class = "titulo_consultas"> <p>Tratamiento</p> </div>   
+          <p>{{historia.4}}</p> 
+        </div>  
+    </div>
+    {% endfor %}
+             
+    </main>
+    
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function openFormMascota() {
+          document.getElementById("myFormMascota").style.display = "block";
+        }
+        
+        function closeFormMascota() {
+          document.getElementById("myFormMascota").style.display = "none";
+        }
+    </script>
+    <script>
+      function openFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "block";
+      }
+      
+      function closeFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "none";
+      }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+    <script>
+      // When the user clicks on div, open the popup
+      function myFunction10() {
+        var popup10 = document.getElementById("myPopup10");
+        popup10.classList.toggle("show");
+      }
+      </script>
+     <script>
+var input = document.getElementById('input');
+
+function carg(elemento) {
+  d = elemento.value;
+  
+  if(d == "P"){
+    input.disabled = true;
+  }else{
+    input.disabled = false;
+  }
+}
+</script>        
+ 
+<!-- Template Custom JavaScript File -->
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="static/js/bootstrap.js"></script>
+<script src="static/js/jquery.prettyPhoto.js"></script>
+<script src="static/js/jquery.flexslider.js"></script>
+<script src="static/js/jquery-hover-effect.js"></script>
+
+  
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom2.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom4.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/custom5.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popup.js') }}"></script> 
+  <script src="{{ url_for('static', filename='js/acordeon.js') }}"></script> 
+</body>
+
+</html>

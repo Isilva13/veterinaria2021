@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Firulais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    
+    
+    
+  
+</head>
+<body>
+  <header class="header">
+    <nav class="header_navegador2">
+        <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+        <div class="caja_icono2">
+          <a class="icono" href="/">
+            <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="5 12 3 12 12 3 21 12 19 12" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            
+          </a>
+          
+        </div>    
+        <a class ="icono_inicio2" href="/"> inicio</a>
+        
+        <div class="search_buscar2">
+          <form  action="/busqueda" method="POST" >
+          <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio" autocomplete="off"/>
+          <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+          </svg> </button> 
+          </form> 
+          
+        </div>
+        <div class="mensaje_socio2">
+        {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+            {% if messages %}
+            {% for message in messages %}
+            
+              
+              <h5>{{message}}</h5> 
+              
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div> 
+                
+            
+          
+            
+         
+           
+        
+    </nav>
+</header>
+   
+    <main class="contenedor">
+      <section class="menu3">
+        <div class="recuadro_botones_buscar2">
+          <a href="/search">
+          <div class="recuadro_botones_bordes_buscar">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <circle cx="15" cy="15" r="4" />
+              <path d="M18.5 18.5l2.5 2.5" />
+              <path d="M4 6h16" />
+              <path d="M4 12h4" />
+              <path d="M4 18h4" />
+            </svg><p class="letra_botones">Búsqueda Avanzada</p>
+          </div>
+        </div></a>
+        <div class="recuadro_botones_clientes2">  
+          <a href="/agregarCliente">
+          <div class="recuadro_botones_bordes_clientes">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                  <path d="M16 11h6m-3 -3v6" />
+                  </svg><p class="letra_botones">Cliente Nuevo</p>
+          </div>
+        </div></a>
+        <div class="recuadro_botones_reportes2">  
+          <a href="/reportesVacunas">
+          <div class="recuadro_botones_bordes_reportes2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-vaccine" width="60" height="60" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M17 3l4 4" />
+              <path d="M19 5l-4.5 4.5" />
+              <path d="M11.5 6.5l6 6" />
+              <path d="M16.5 11.5l-6.5 6.5h-4v-4l6.5 -6.5" />
+              <path d="M7.5 12.5l1.5 1.5" />
+              <path d="M10.5 9.5l1.5 1.5" />
+              <path d="M3 21l3 -3" />
+            </svg><p class="letra_botones">Reportes Vacunas</p>
+          </div>
+        </div>  </a>
+        <div class="recuadro_botones_productos2">   
+          <a href="/productos">
+          <div class="recuadro_botones_bordes_productos">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <line x1="3" y1="21" x2="21" y2="21" />
+              <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+              <line x1="5" y1="21" x2="5" y2="10.85" />
+              <line x1="19" y1="21" x2="19" y2="10.85" />
+              <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+            </svg></span><p class="letra_botones">Productos</p>
+          </div></a>
+        
+        </div>
+      </section>
+      <div class="reportes_avanzados"> 
+        <div class="columnas_division_vermascotas" >
+          <a href="/reportes" class="btn"> Listado Clientes</a>
+        </div>
+        <div class="columnas_division_vermascotas" >
+          <a href="/reportesMascotas" class="btn"> Listado Mascotas</a>
+        </div>
+        <div class="columnas_division_vermascotas_detalles" >
+          <a href="/estadisticas" class="btn_estadisticas"> Estadisticas</a>
+        </div>
+      </div> 
+      <section class="historia">
+             
+        <div class="columnas_reporte_mascotas">
+         
+           <div class="columnas_division_reportes_clientes"><a href="/reportesMascotasVacunasOrden/pc.numsocio">Sócio</a></div>   
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/m.activo">Act.</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/m.nombre">Nombre</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/e.descripcion">Espécie</a></div>
+           <div class="columnas_division_reportes_clientes"" ><a href="/reportesMascotasVacunasOrden/r.descripcion">Raza</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/m.sexo">Sexo</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/c.fecha">Fecha Vacuna</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/c.fecha">Próxima Vacuna</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/c.fecha">Dias Restantes</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/m.fechaNacimiento">Fecha de Nac.</a></div>
+           <div class="columnas_division_reportes_clientes"><a href="/reportesMascotasVacunasOrden/pc.CIpersonacliente">Cédula Identidad</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/pc.apellido">Nombre del Cliente</a></div>
+           <div class="columnas_division_reportes_clientes""><a href="/reportesMascotasVacunasOrden/pc.telefono1">Teléfono</a></div>
+           <div class="columnas_division_icono_excel" >
+            <a href="{{url_for('static', filename='img/DatosMascotas.xlsx')}}" class="btn" download = "Mascotas.xlsx" title="Reporte en excel" >
+              <img class="columnas_division_adjuntos" src="{{ url_for('static', filename='img/consultas.png') }}"  width = "20px" high = "10px"alt=""/></a>
+          
+      </section>
+      
+           <section class="historia_datos">
+            
+            <div class="columnas_reporte_clientes_datos_mascotas">
+              {% for mascota in fechaFinal %}
+                 <div class="columnas_division_datos_reporte "><span class="test" data-toggle="tooltip" data-placement="bottom" title="{{mascota.14}}" >
+                  <form action="/reportesMascotasBuscar/{{mascota.15}}"  method="POST">
+                  <button type="submit">{{mascota.13}}</button></span> </div>
+                  </form>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" ></span> {{mascota.7}}</div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" ></span>{{mascota.0}} </div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" ></span>{{mascota.2}} </div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.1}} </span> </div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.4}}</span> </div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" ></span> {{mascota.16}}</div>
+                 <div class="columnas_division_datos_reporte"><span class="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.3}}</span> </div>
+                 <div class="columnas_division_datos_reporte"><span class ="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.18}}</span> </div>
+                 <div class="columnas_division_datos_reporte"><span class ="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.9}} </span> </div>
+                 <div class="columnas_division_datos_reporte"><span class ="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.12}} </span> </div>
+                 <div class="columnas_division_datos_reporte"><span class ="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.10}} {{mascota.11}}</span> </div>
+                 <div class="columnas_division_datos_reporte"><span class ="test" data-toggle="tooltip" data-placement="bottom" title="" >{{mascota.17}}</span> </div>
+                 {% endfor %} 
+                 <div class="columnas_division_reportes_resumen"></div>
+            </div>
+            
+          </section>             
+
+        
+                  
+                  
+              
+                      
+                                                                       
+                      
+                      
+                     
+                                
+                             
+                                  
+                               
+                 
+          
+        
+    </main>
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function openFormMascota() {
+          document.getElementById("myFormMascota").style.display = "block";
+        }
+        
+        function closeFormMascota() {
+          document.getElementById("myFormMascota").style.display = "none";
+        }
+    </script>
+    <script>
+      function openFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "block";
+      }
+      
+      function closeFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "none";
+      }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+ 
+
+  <!-- Template Custom JavaScript File -->
+  <script src="static/js/custom.js"></script>
+  <script src="{{ url_for('static', filename='js/popup.js') }}"></script> 
+</body>
+
+</html>

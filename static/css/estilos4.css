@@ -1,0 +1,183 @@
+
+  
+ .modal-contenido{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	width:50rem;
+	height: 38rem;
+	top: 1rem;
+	left: 17rem;
+	position: fixed;
+	z-index: 1;
+	bottom: 125%;
+  }
+ 
+  .modal{
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  }
+  
+  
+ .modal-contenido2{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	width:40rem;
+	height: 13rem;
+	top: 3rem;
+	left: 30rem;
+	position: fixed;
+	padding: 1rem;
+	
+  }
+ 
+  .modal2{
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal2:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  }
+  .modal-contenido3{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	width:40rem;
+	height: 13rem;
+	top: 3rem;
+	left: 30rem;
+	position: fixed;
+	padding: 1rem;
+	
+  }
+ 
+  .modal3{
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal3:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  }
+
+  .modal-contenido4{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	width:30rem;
+	height: 20;
+	top: 1rem;
+	left: 17rem;
+	position: fixed;
+	
+  }
+ 
+  .modal4{
+	background-color: rgba(0,0,0,.3);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal4:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  } 
+  
+ .modal-contenido_especie{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	
+	font-family: 'Montserrat', sans-serif;
+	width:10rem;
+	height: 10rem;
+	top: 20rem;
+	left: 70rem;
+	position: fixed;
+	
+  }
+ 
+  .modal_especie{
+	background-color: rgba(0, 0, 0, 0.863);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal_especie:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  }
+  .modal-contenido_raza{
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	
+	font-family: 'Montserrat', sans-serif;
+	width:10rem;
+	height: 10rem;
+	top: 20rem;
+	left: 70rem;
+	position: fixed;
+	
+  }
+ 
+  .modal_raza{
+	background-color: rgba(0, 0, 0, 0.863);
+	position:fixed;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	opacity:0;
+	pointer-events:none;
+	transition: .3s all;
+  }
+  #miModal_raza:target{
+	opacity:1;
+	pointer-events:auto;
+	
+  }

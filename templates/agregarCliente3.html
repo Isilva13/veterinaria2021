@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Boston</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    
+    
+    
+  
+</head>
+<body>
+  <header class="header">
+    <nav class="header_navegador2">
+        <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+        <div class="caja_icono2">
+          <a class="icono" href="/inicio">
+            <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="5 12 3 12 12 3 21 12 19 12" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            
+          </a>
+          
+        </div>    
+        <a class ="icono_inicio2" href="/inicio"> inicio</a>
+        
+        <div class="search_buscar2">
+          <form  action="/busqueda" method="POST" >
+          <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio"/>
+          <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+          </svg> </button> 
+          </form> 
+          
+        </div>
+        <div class="mensaje_socio2">
+        {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+            {% if messages %}
+            {% for message in messages %}
+            
+              
+              <h5>{{message}}</h5> 
+              
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div> 
+                
+            
+          
+            
+         
+           
+        
+    </nav>
+</header>
+   
+    <main class="contenedor">
+        <section class="menu3">
+          <div class="recuadro_botones_buscar_busqueda">
+            <a href="/search">
+            <div class="recuadro_botones_bordes_buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="15" cy="15" r="4" />
+                <path d="M18.5 18.5l2.5 2.5" />
+                <path d="M4 6h16" />
+                <path d="M4 12h4" />
+                <path d="M4 18h4" />
+              </svg><p class="letra_botones">Búsqueda Avanzada</p>
+            </div>
+          </div></a>
+          <div class="recuadro_botones_clientes2">  
+            <div class="recuadro_botones_bordes_clientes_agregar">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 11h6m-3 -3v6" />
+                    </svg><p class="letra_botones">Cliente Nuevo</p>
+            </div>
+          </div>
+          <div class="recuadro_botones_reportes2">  
+            <a href="/reportes">
+            <div class="recuadro_botones_bordes_reportes">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <rect x="8" y="3" width="6" height="4" rx="2" />
+                <circle cx="18" cy="18" r="4" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" />
+              </svg><p class="letra_botones">Reportes</p>
+            </div>
+          </div>  </a>
+          <div class="recuadro_botones_productos2">   
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="3" y1="21" x2="21" y2="21" />
+                <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+                <line x1="5" y1="21" x2="5" y2="10.85" />
+                <line x1="19" y1="21" x2="19" y2="10.85" />
+                <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+              </svg></span><p class="letra_botones">Productos</p>
+            </div>
+          
+          </div>
+        </section>
+        <section class="mensajes">
+          {% with messages = get_flashed_messages(with_categories=False, category_filter=["numsocio"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="mensaje_socio2">
+                  <h5>{{message}}</h5>
+                </div> 
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["buscarmascota"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="mensaje_socio2">
+                  <h5>{{message}}</h5> 
+                </div> 
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+        </section>
+        <section class="buscador">
+          <div class="buscador_recuadro_agregarcliente" id="borde_color">
+            <form  action="add_contact" method="POST" >
+            <div class="buscador_recuadro_divisiones_agregarcliente">
+              
+              <div class="buscador_recuadro_divisiones_izquierda">
+                <label class="buscador_recuadro_fuente"></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="numsocio" placeholder= "# Sócio: Último registro: {% for socio in sigsocio %} {{socio}} {% endfor %} " minlength="2" maxlength="20"  pattern="[0-9]+" title="Ingrese solamente números" required> 
+                
+              </div>
+              <div class="buscador_recuadro_divisiones_centro">
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="CIpersona" placeholder="# Cédula " minlength="2" maxlength="20"  pattern="[0-9]+"title="Ingrese solamente números sin puntos ni guiones" required> 
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["CIpersona"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                  </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_derecha">
+                <label class="buscador_recuadro_fuente"><b> </b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="nombre" placeholder=" Nombre " minlength="2" maxlength="20"  pattern="[A-Za-z\s]+"title="Ingrese solamente letras" required> 
+              </div>
+              <div class="buscador_recuadro_divisiones_izquierda">
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="apellido" placeholder="Apellido " minlength="2" maxlength="20"  pattern="[A-Za-z\s]+"title="Ingrese solamente letras" required > 
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["apellido"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                  </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_centro">
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="snombre" placeholder="Segundo Nombre" minlength="2" maxlength="20"  pattern="[A-Za-z\s]+"title="Ingrese solamente letras" > 
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["snombre"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>  
+                    
+              <div class="buscador_recuadro_divisiones_derecha">
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="sapellido" placeholder="Segundo Apellido " minlength="2" maxlength="20"  pattern="[A-Za-z\s]+"title="Ingrese solamente letras" > 
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["sapellido"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                  </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>     
+              <div class="buscador_recuadro_divisiones_izquierda">
+                    <label class="buscador_recuadro_fuente"><b></b></label>
+                    <input class="buscador_recuadro_input" type="text" autocomplete="off" name="calle" placeholder="Dirección" minlength="3" maxlength="20" pattern="[A-Za-z0-9\s]+">
+                    {% with messages = get_flashed_messages(with_categories=False, category_filter=["calle"])  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>
+                      <h5 style="color:red" >{{message}} </h5> 
+                      </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_centro">
+                    <label class="buscador_recuadro_fuente"><b></b></label>
+                    <input class="buscador_recuadro_input" type="text" autocomplete="off" name="esquina" placeholder="Esquina" minlength="3" maxlength="20" pattern="[A-Za-z0-9\s]+">
+                    {% with messages = get_flashed_messages(with_categories=False, category_filter=["esquina"])  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>
+                      <h5 style="color:red" >{{message}} </h5> 
+                      </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_derecha">
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="numero" placeholder="Número" minlength="3" maxlength="20" pattern="[0-9]+" title="Ingrese solamente números">
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["numero"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                  </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_izquierda">      
+                    <label class="buscador_recuadro_fuente"><b></b></label>
+                    <input class="buscador_recuadro_input" type="text" autocomplete="off" name="telefono1" placeholder="Teléfono" minlength="5" maxlength="9" pattern="[0-9]+"title="Ingrese solamente números">
+                    {% with messages = get_flashed_messages(with_categories=False, category_filter=["telefono1"])  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>
+                      <h5 style="color:red" >{{message}} </h5> 
+                      </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_centro">      
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" type="text" autocomplete="off" name="telefono2" placeholder="Otro Teléfono" minlength="5" maxlength="9" pattern="[0-9]+"title="Ingrese solamente números">
+                {% with messages = get_flashed_messages(with_categories=False, category_filter=["telefono2"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div>
+                  <h5 style="color:red" >{{message}} </h5> 
+                  </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_derecha">  
+                    <label class="buscador_recuadro_fuente"><b></b></label>
+                    <input class="buscador_recuadro_input" type="email" autocomplete="off" name="correoElectronico"  placeholder="EMail" maxlength="60" >
+                    {% with messages = get_flashed_messages(with_categories=False, category_filter=["correoElectronico"])  %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div>
+                      <h5 style="color:red" >{{message}} </h5> 
+                      </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+              </div>
+              <div class="buscador_recuadro_divisiones_izquierda">      
+                <label class="buscador_recuadro_fuente"><b></b></label>
+                <input class="buscador_recuadro_input" id="categoria" type="text" autocomplete="off" name="cat" placeholder="Categoria (A, C, P)" minlength="1" maxlength="" pattern="[A C P]+" title="Ingrese solamente letras entre A, C y P " required>
+                
+              </div>
+              <div class="buscador_recuadro_divisiones_izquierda_select">
+                      <label class="buscador_recuadro_fuente"><b></b></label>
+                      <!--<input class="buscador_recuadro_input" type="text" autocomplete="off" name="r" placeholder="R (0, 2, 5, 10)" minlength="1" maxlength="2" pattern="[0-9]+" title="Ingrese solamente números entre 0, 2, 5 y 10" required>-->
+                      <select class="buscador_recuadro_input_select" type="text" id="r" name="r" required>
+                        
+                        <option type="text"value="">Seleccionar R</option>
+                      </select>
+              </div>  
+             
+                <div class="buscador_recuadro_divisiones_boton">
+                  <button type="submit" class="btn5 btn-outline-success">Agregar Cliente</button>
+                </div> 
+              </form>
+            </div>
+          </div>
+          
+          
+             
+          
+        </section>
+         
+        
+                  
+                  
+              
+                      
+                                                                       
+                      
+                      
+                     
+                                
+                             
+                                  
+                               
+                 
+          
+        
+    </main>
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function openFormMascota() {
+          document.getElementById("myFormMascota").style.display = "block";
+        }
+        
+        function closeFormMascota() {
+          document.getElementById("myFormMascota").style.display = "none";
+        }
+    </script>
+    <script>
+      function openFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "block";
+      }
+      
+      function closeFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "none";
+      }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+ 
+ <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+ <script src="static/js/bootstrap.js"></script>
+ <script src="static/js/jquery.prettyPhoto.js"></script>
+ <script src="static/js/jquery.flexslider.js"></script>
+ <script src="static/js/jquery-hover-effect.js"></script>  
+  <!-- Template Custom JavaScript File -->
+  <script src="{{ url_for('static', filename='js/custom3.js') }}"></script>
+  <script src="static/js/custom.js"></script>
+  <script src="{{ url_for('static', filename='js/popup.js') }}"></script> 
+</body>
+
+</html>

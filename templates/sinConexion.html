@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Firulais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos7.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    
+    
+    
+  
+</head>
+<body>
+    <header class="header">
+        <nav class="header_navegador2">
+            <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+            
+            
+            <div class="caja_icono2">
+              <a class="icono" href="/">
+                <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                </svg>
+                
+              </a>
+              
+            </div>    
+            <a class ="icono_inicio2" href="/"> inicio</a>
+            
+            <div class="search_buscar2">
+              <form  action="/busqueda" method="POST" >
+              <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio" autocomplete="off"/>
+              <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <circle cx="10" cy="10" r="7" />
+              <line x1="21" y1="21" x2="15" y2="15" />
+              </svg> </button> 
+              </form> 
+              
+            </div>
+            <div class="mensaje_socio2">
+            {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+                {% if messages %}
+                {% for message in messages %}
+                
+                  
+                  <h5>{{message}}</h5> 
+                  
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div> 
+                    
+                
+              
+                
+             
+               
+            
+        </nav>
+    </header>
+   
+    <main class="contenedor">
+        <section class="menu3">
+          
+          
+          
+
+
+                    
+        </section>
+         
+        
+                  
+                  
+              
+                      
+                                                                       
+                      
+                      
+                     
+                                
+                             
+                                  
+                               
+                 
+          
+        
+    </main>
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function openFormMascota() {
+          document.getElementById("myFormMascota").style.display = "block";
+        }
+        
+        function closeFormMascota() {
+          document.getElementById("myFormMascota").style.display = "none";
+        }
+    </script>
+    <script>
+      function openFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "block";
+      }
+      
+      function closeFormEditarMascota() {
+        document.getElementById("myFormEditarMascota").style.display = "none";
+      }
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+ 
+
+  <!-- Template Custom JavaScript File -->
+  <script src="static/js/custom.js"></script>
+  
+  <script src="{{ url_for('static', filename='js/popup7.js') }}"></script> 
+  
+</body>
+
+</html>

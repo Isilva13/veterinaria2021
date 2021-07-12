@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class ="head" id = "head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinária Firulais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    <link rel="STYLESHEET" type="text/css" href="{{ url_for('static', filename='css/print.css') }}" media="print">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooltip1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos4.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    
+    
+    
+  
+</head>
+<body>
+  <header class="header" id = "header">
+    <nav class="header_navegador2">
+        <div class="titulo2"><a class="titulo2">Veterinária Boston</a></div>
+        <div class="caja_icono2">
+          <a class="icono" href="/">
+            <svg class="icono" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="5 12 3 12 12 3 21 12 19 12" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            
+          </a>
+          
+        </div>    
+        <a class ="icono_inicio2" href="/"> inicio</a>
+        
+        <div class="search_buscar2">
+          <form  action="/busqueda" method="POST" >
+          <input class="campo_buscar2"  type="text" name="numsocio" placeholder="N° Sócio" autocomplete="off"/>
+          <button class="botón_buscar2" type="submit"><svg class="lupa2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+          </svg> </button> 
+          </form> 
+          
+        </div>
+        <div class="mensaje_socio2">
+        {% with messages = get_flashed_messages(with_categories=False, category_filter=["categoria"])  %}
+            {% if messages %}
+            {% for message in messages %}
+            
+              
+              <h5>{{message}}</h5> 
+              
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div> 
+                
+            
+          
+            
+         
+           
+        
+    </nav>
+</header>
+   
+    <main class="contenedor">
+        <section class="menu3" id="menu3">
+          <div class="recuadro_botones_buscar2">
+            <a href="/search">
+            <div class="recuadro_botones_bordes_buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-search" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="15" cy="15" r="4" />
+                <path d="M18.5 18.5l2.5 2.5" />
+                <path d="M4 6h16" />
+                <path d="M4 12h4" />
+                <path d="M4 18h4" />
+              </svg><p class="letra_botones">Búsqueda Avanzada</p>
+            </div>
+          </div></a>
+          <div class="recuadro_botones_clientes2">  
+            <a href="/agregarCliente">
+            <div class="recuadro_botones_bordes_clientes">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 11h6m-3 -3v6" />
+                    </svg><p class="letra_botones">Cliente Nuevo</p>
+            </div>
+          </div></a>
+          <div class="recuadro_botones_reportes2">  
+            <a href="/reportes">
+            <div class="recuadro_botones_bordes_reportes">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <rect x="8" y="3" width="6" height="4" rx="2" />
+                <circle cx="18" cy="18" r="4" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" />
+              </svg><p class="letra_botones">Reportes</p>
+            </div>
+          </div>  </a>
+          <div class="recuadro_botones_productos2">   
+            <a href="/productos">
+            <div class="recuadro_botones_bordes_productos">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="3" y1="21" x2="21" y2="21" />
+                <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+                <line x1="5" y1="21" x2="5" y2="10.85" />
+                <line x1="19" y1="21" x2="19" y2="10.85" />
+                <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+              </svg></span><p class="letra_botones">Productos</p>
+            </div></a>
+            
+          </div>
+        </section>
+        <form  action="reportesR"  method="POST" enctype="multipart/form-data" >
+        <div class="botonesR" id="botonesR">
+            <div class="buscador_recuadro_divisiones_izquierda">
+                <select type="text"id="descripcioncategoria" name="r" >
+                  <option type="text" value="1">R2 por Dirección</option>
+                  <option type="text" value="2">R2 por Sócio</option>
+                  <option type="text" value="5">R2 por Apellido</option>
+                  <option type="text" value="3">R10 por Dirección</option>
+                  <option type="text" value="4">R10 por Sócio</option>
+                  <option type="text" value="6">R10 por Apellido</option>
+                </select>
+            </div>
+              
+              <div class="buscador_recuadro_divisiones_centro"> 
+                <select type="text"id="descripcioncategoria" name="mes" >
+                  
+                  <option type="text" value="{{mesActual}}">{{mesActual}}</option>
+                  
+                  <option type="text" value="Enero">Enero</option>
+                  <option type="text" value="Febrero">Febrero</option>
+                  <option type="text" value="Marzo">Marzo</option>
+                  <option type="text" value="Abril">Abril</option>
+                  <option type="text" value="Mayo">Mayo</option>
+                  <option type="text" value="Junio">Junio</option>
+                  <option type="text" value="Julio">Julio</option>
+                  <option type="text" value="Agosto">Agosto</option>
+                  <option type="text" value="Setiembre">Setiembre</option>
+                  <option type="text" value="Octubre">Octubre</option>
+                  <option type="text" value="Noviembre">Noviembre</option>
+                  <option type="text" value="Diciembre">Diciembre</option>
+                </select>
+              </div>
+              <div class="buscador_recuadro_divisiones_derecha_boton">
+                <button type="submit"  class="btn10 btn-outline-success">Enviar</button>
+              </div> 
+        </div>
+      </form> 
+        <section class="recibo" >
+          {% for datosr2 in datosr2 %}
+          
+          <div class="recibo_recuadro" >
+            <div class="recibo_recuadro_encabezado" >
+              <div class="recibo_recuadro_encabezado_logo">
+                <img src="{{ url_for('static', filename='img/logoBoston.png') }}" >
+              </div>
+              <div class="recibo_recuadro_encabezado_titulo">
+                <div class="recibo_recuadro_encabezado_titulo_vet">
+                  V E T E R I N A R I A
+                </div>
+                <div class="recibo_recuadro_encabezado_titulo_boston">
+                   BOSTON <span>SA</span>
+                </div>
+                <div class="recibo_recuadro_encabezado_titulo_direccion">
+                  BOLIVIA 1402 - Esq. BOSTON
+               </div>
+               <div class="recibo_recuadro_encabezado_titulo_telefono">
+                Tel.: 2601 3067
+             </div>
+              </div>
+            </div>
+            <div class="recibo_detalles">
+              CONSULTAS MÉDICAS - CIRUGÍAS - RACIONES
+              <div class="recibo_detalles_uso">
+                USO INTERNO
+    
+              </div>
+            </div>
+            <div class="recibo_detalles2">
+              MEDICAMENTOS - ACCESÓRIOS
+              <div class="recibo_detalles2_valor">
+                SIN VALOR LEGAL
+    
+              </div>
+            </div>
+            <div class="recibo_nombre">
+              <p>NOMBRE</p>
+              <p>N° SOCIO</p>
+            </div>
+            <div class="recibo_nombre_datos">
+              <p>{{datosr2.0}} {{datosr2.2}}</p>
+              <p>{{datosr2.8}}</p>
+            </div>  
+            <div class="recibo_dir">
+              <p>DIRECCIÓN</p>
+              <p>MES</p>
+            </div>
+            <div class="recibo_dir_datos">
+              <p>{{datosr2.4}} {{datosr2.5}} apto.{{datosr2.12}}</p>
+              <p>{{mes}} {{ano}}</p>
+            </div> 
+            <div class="recibo_otros">
+              <p></p>
+              <p>ORDINAL</p>
+              <p>INGRESO</p>
+              <p>RADIO</p>
+              <p>CAT.</p>
+              
+            </div>
+            <div class="recibo_otros_datos">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>{{datosr2.7}}</p>
+              <p>{{datosr2.6}}</p>
+              
+            </div>
+            <div class="recibo_montos">
+              <p>SUB TOTAL</p>
+              <p>IVA TASA BÁSICA</p>
+              <p>TOTAL</p>
+              
+            </div>
+            <div class="recibo_montos_datos">
+              <p>{{datosr2.9}}</p>
+              <p>{{datosr2.10}}</p>
+              <p>{{datosr2.11}}</p>
+              
+            </div>  
+            
+          </div>
+
+          <div class="recibo_recuadro" >
+            <div class="recibo_recuadro_encabezado" >
+              <div class="recibo_recuadro_encabezado_logo">
+                <img src="{{ url_for('static', filename='img/logoBoston.png') }}" >
+              </div>
+              <div class="recibo_recuadro_encabezado_titulo">
+                <div class="recibo_recuadro_encabezado_titulo_vet">
+                  V E T E R I N A R I A
+                </div>
+                <div class="recibo_recuadro_encabezado_titulo_boston">
+                   BOSTON <span>SA</span>
+                </div>
+                <div class="recibo_recuadro_encabezado_titulo_direccion">
+                  BOLIVIA 1402 - Esq. BOSTON
+               </div>
+               <div class="recibo_recuadro_encabezado_titulo_telefono">
+                Tel.: 2601 3067
+             </div>
+              </div>
+            </div>
+            <div class="recibo_detalles">
+              CONSULTAS MÉDICAS - CIRUGÍAS - RACIONES
+              <div class="recibo_detalles_uso">
+                USO INTERNO
+    
+              </div>
+            </div>
+            <div class="recibo_detalles2">
+              MEDICAMENTOS - ACCESÓRIOS
+              <div class="recibo_detalles2_valor">
+                SIN VALOR LEGAL
+    
+              </div>
+            </div>
+            <div class="recibo_nombre">
+              <p>NOMBRE</p>
+              <p>N° SOCIO</p>
+            </div>
+            <div class="recibo_nombre_datos">
+              <p>{{datosr2.0}} {{datosr2.2}}</p>
+              <p>{{datosr2.8}}</p>
+            </div>  
+            <div class="recibo_dir">
+              <p>DIRECCIÓN</p>
+              <p>MES</p>
+            </div>
+            <div class="recibo_dir_datos">
+              <p>{{datosr2.4}} {{datosr2.5}} apto.{{datosr2.12}}</p>
+              <p>{{mes}} {{ano}}</p>
+            </div> 
+            <div class="recibo_otros">
+              <p></p>
+              <p>ORDINAL</p>
+              <p>INGRESO</p>
+              <p>RADIO</p>
+              <p>CAT.</p>
+              
+            </div>
+            <div class="recibo_otros_datos">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>{{datosr2.7}}</p>
+              <p>{{datosr2.6}}</p>
+              
+            </div>
+            <div class="recibo_montos">
+              <p>SUB TOTAL</p>
+              <p>IVA TASA BÁSICA</p>
+              <p>TOTAL</p>
+              
+            </div>
+            <div class="recibo_montos_datos">
+              <p>{{datosr2.9}}</p>
+              <p>{{datosr2.10}}</p>
+              <p>{{datosr2.11}}</p>
+              
+            </div>  
+            
+          </div>
+          {% endfor %} 
+          
+          
+        </div>
+        
+        
+
+        </section>
+         
+        
+                  
+                  
+              
+                      
+                                                                       
+                      
+                      
+                     
+                                
+                             
+                                  
+                               
+                 
+          
+        
+    </main>
+    
+ 
+
+  <!-- Template Custom JavaScript File -->
+  <script src="static/js/custom.js"></script>
+  <script src="{{ url_for('static', filename='js/popup.js') }}"></script> 
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+.popup11 {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup11 .popuptext11 {
+    background-color: rgb(242, 243, 247);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	width:50rem;
+	height: 38rem;
+	top: 1rem;
+	left: 17rem;
+	position: fixed;
+    visibility: hidden;
+    color: rgb(133, 46, 46);
+    padding: 8px 0;
+    z-index: 1;
+    bottom: 125%;
+  }
+  
+  /* Popup arrow */
+  .popup11 .popuptext11::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup11 .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

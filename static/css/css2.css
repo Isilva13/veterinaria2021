@@ -1,0 +1,45 @@
+.contenedor_bajas {
+    max-width: 120rem;
+    margin: 0 auto;
+    
+}
+
+.historia_bajas{
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 1rem;
+    margin-bottom: 0rem;
+    
+    margin-right: 00.5rem;
+    
+    
+}
+.reporte_bajas{
+    display: grid;
+    grid-template-columns: 4% 3% 6% 15% 13% 11% 13% 24% 8% 3%;
+    width: 100%;
+    
+    
+    font-size: 0.8rem;
+    color: rgb(77, 67, 67);
+}
+.reporte_bajas_datos{
+    display: grid;
+    grid-template-columns: 4% 3% 6% 15% 13% 11% 13% 24% 11%;
+    width: 100%;
+    
+    
+    font-size: 0.8rem;
+    color: rgb(77, 67, 67);
+}
+.columnas_division_reportes_clientes_bajas{
+    padding-top: 0.5rem;
+    padding-bottom: 0rem;
+    padding-left: 0.5rem;
+    border-right: 1px solid white;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem; 
+    
+}
